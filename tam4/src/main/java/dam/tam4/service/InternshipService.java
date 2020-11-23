@@ -1,13 +1,9 @@
 package dam.tam4.service;
 
-import java.util.Optional;
-
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import dam.tam4.domain.Candidate;
 import dam.tam4.domain.Internship;
-import dam.tam4.repository.CandidateRepository;
 import dam.tam4.repository.InternshipRepository;
 
 @Service

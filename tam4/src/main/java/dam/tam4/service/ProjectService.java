@@ -3,9 +3,7 @@ package dam.tam4.service;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import dam.tam4.domain.Candidate;
 import dam.tam4.domain.Project;
-import dam.tam4.repository.CandidateRepository;
 import dam.tam4.repository.ProjectRepository;
 
 @Service

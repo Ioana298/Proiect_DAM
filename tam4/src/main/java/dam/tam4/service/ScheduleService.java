@@ -4,9 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import dam.tam4.domain.Internship;
 import dam.tam4.domain.Schedule;
-import dam.tam4.repository.InternshipRepository;
 import dam.tam4.repository.ScheduleRepository;
 
 @Service

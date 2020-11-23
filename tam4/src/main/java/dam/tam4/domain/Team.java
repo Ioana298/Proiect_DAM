@@ -31,10 +31,10 @@ public class Team {
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinColumn(name="scheduleId", nullable=false)
-	private List<Schedule> schedules;
+	private Schedule schedule;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private Project projects;
+	private Project project;
 
 	public Long getTeamId() {
 		return teamId;
@@ -60,27 +60,25 @@ public class Team {
 		this.users = users;
 	}
 
-	public List<Schedule> getSchedules() {
-		return schedules;
+	public Schedule getSchedule() {
+		return schedule;
 	}
 
-	public void setSchedules(List<Schedule> schedules) {
-		this.schedules = schedules;
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
 	}
 
-	public Project getProjects() {
-		return projects;
+	public Project getProject() {
+		return project;
 	}
 
-	public void setProjects(Project projects) {
-		this.projects = projects;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	@Override
 	public String toString() {
-		return "Team [teamId=" + teamId + ", name=" + name + ", users=" + users + ", schedules=" + schedules
-				+ ", projects=" + projects + "]";
+		return "Team [teamId=" + teamId + ", name=" + name + ", users=" + users + ", schedule=" + schedule
+				+ ", project=" + project + "]";
 	}
-
-	
 }

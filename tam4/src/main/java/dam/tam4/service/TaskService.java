@@ -23,7 +23,7 @@ private final TaskRepository tRepository;
 		newTask.setName(t.getName());
 	}
 		public void updateTask(Task t) {
-		tRepository.update(t);
+		tRepository.save(t);
 	}
 	
 	public void deleteTask(Task t ) {
