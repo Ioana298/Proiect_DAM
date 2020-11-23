@@ -2,11 +2,15 @@ package dam.tam4.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
@@ -21,10 +25,16 @@ public class Team {
 
 	@NotNull
 	private String name;
-	private List<User> members;
+	
+	@OneToMany(mappedBy="team")
+	private List<User> users;
 
-	@ManyToOne(mappedBy = "teams")
-	private List<Project> projects;
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(name="scheduleId", nullable=false)
+	private List<Schedule> schedules;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private Project projects;
 
 	public Long getTeamId() {
 		return teamId;
@@ -42,25 +52,35 @@ public class Team {
 		this.name = name;
 	}
 
-	public List<User> getMembers() {
-		return members;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setMembers(List<User> members) {
-		this.members = members;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
-	public List<Project> getProjects() {
+	public List<Schedule> getSchedules() {
+		return schedules;
+	}
+
+	public void setSchedules(List<Schedule> schedules) {
+		this.schedules = schedules;
+	}
+
+	public Project getProjects() {
 		return projects;
 	}
 
-	public void setProjects(List<Project> projects) {
+	public void setProjects(Project projects) {
 		this.projects = projects;
 	}
 
 	@Override
 	public String toString() {
-		return "Team [teamId=" + teamId + ", name=" + name + ", members=" + members + ", projects=" + projects + "]";
+		return "Team [teamId=" + teamId + ", name=" + name + ", users=" + users + ", schedules=" + schedules
+				+ ", projects=" + projects + "]";
 	}
+
 	
 }

@@ -1,14 +1,15 @@
 package dam.tam4.domain;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.sun.istack.NotNull;
 
 
 
@@ -18,58 +19,52 @@ public class Schedule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long scheduleId;
-	private Long teamId;
 	private LocalDate Date;
 	
-	
-@NotNull
-private String name;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Task> tasks;
 
 
-public Long getScheduleId() {
-	return scheduleId;
-}
+
+	public Long getScheduleId() {
+		return scheduleId;
+	}
 
 
-public void setScheduleId(Long scheduleId) {
-	this.scheduleId = scheduleId;
-}
+	public void setScheduleId(Long scheduleId) {
+		this.scheduleId = scheduleId;
+	}
 
 
-public Long getTeamId() {
-	return teamId;
-}
+	public LocalDate getDate() {
+		return Date;
+	}
 
 
-public void setTeamId(Long teamId) {
-	this.teamId = teamId;
-}
+	public void setDate(LocalDate date) {
+		Date = date;
+	}
 
 
-public LocalDate getDate() {
-	return Date;
-}
+	public List<Task> getTasks() {
+		return tasks;
+	}
 
 
-public void setDate(LocalDate date) {
-	Date = date;
-}
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
 
 
-public String getName() {
-	return name;
-}
+	@Override
+	public String toString() {
+		return "Schedule [scheduleId=" + scheduleId + ", Date=" + Date + ", tasks=" + tasks + "]";
+	}
 
 
-public void setName(String name) {
-	this.name = name;
-}
 
-
-@Override
-public String toString() {
-	return "Schedule [scheduleId=" + scheduleId + ", teamId=" + teamId + ", Date=" + Date + ", name=" + name + "]";
-}
 
 	
+
+
 }

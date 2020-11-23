@@ -21,9 +21,8 @@ private final ScheduleRepository sRepository;
 	public void addSchedule(Schedule s) {
 		Schedule newSchedule=new Schedule();
 		newSchedule.setScheduleId(null);
-		newSchedule.setTeamId(null);
 		newSchedule.setDate(s.getDate());
-		newSchedule.setTask(s.gettasks());
+		newSchedule.setTasks(s.getTasks());
 		
 		sRepository.save(newSchedule);
 	}
