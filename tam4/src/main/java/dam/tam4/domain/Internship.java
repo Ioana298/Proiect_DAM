@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 @Entity
 @Table (name = "internships")
 public class Internship {
@@ -20,6 +22,8 @@ public class Internship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long internshipId;
+	
+	@NotNull
 	private String name;
 	private String type;
 	private LocalDate startDate;
