@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table (name = "internships")
+@Table(name = "internships")
 public class Internship {
 
 	@Id
@@ -30,10 +30,8 @@ public class Internship {
 	private LocalDate endDate;
 	private Boolean isPaid;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name= "candidates_internships",
-	joinColumns = @JoinColumn(name = "internshipId"),
-	inverseJoinColumns = @JoinColumn(name = "candidateId"))
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "candidates_internships", joinColumns = @JoinColumn(name = "internshipId"), inverseJoinColumns = @JoinColumn(name = "candidateId"))
 	private List<Candidate> candidates;
 
 	public Long getInternshipId() {
@@ -97,6 +95,5 @@ public class Internship {
 		return "Internship [internshipId=" + internshipId + ", name=" + name + ", type=" + type + ", startDate="
 				+ startDate + ", endDate=" + endDate + ", isPaid=" + isPaid + ", candidates=" + candidates + "]";
 	}
-	
-	
+
 }
