@@ -4,9 +4,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import dam.tam4.domain.Task;
+
 import dam.tam4.domain.Team;
-import dam.tam4.repository.TaskRepository;
 import dam.tam4.repository.TeamRepository;
 
 @Service
@@ -23,7 +22,7 @@ private final TeamRepository tmRepository;
 		Team newTeam=new Team();
 		newTeam.setTeamId(null);
 		newTeam.setProjects(tm.getProjects());
-		new.Team.setMembers(tm.getList());
+		newTeam.setUsers(tm.getUsers());
 	}
 		public void updateTeam(Team tm) {
 		tmRepository.update(tm);
