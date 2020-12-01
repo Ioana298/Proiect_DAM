@@ -14,7 +14,7 @@ public class MyErrorController implements ErrorController{
 	public ModelAndView handleError(HttpServletRequest httpRequest) {
 		ModelAndView errorPage = new ModelAndView("errorPage");
 		Integer httpErrorCode = getErrorCode(httpRequest);
-		System.out.println(httpErrorCode);
+		System.out.println("\nError: " + httpErrorCode + "\n");
 		httpRequest.getSession().setAttribute("errorCode", httpErrorCode);
 		return errorPage;
 	}
