@@ -24,7 +24,6 @@ public class CandidateController {
 		cService.addCandidate(c);
 	}
 
-
 	@GetMapping("/candidate/getAllCandidates")
 	public ModelAndView getAllCandidates() {
 		ModelAndView mv = new ModelAndView("candidate");
