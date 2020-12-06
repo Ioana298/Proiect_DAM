@@ -23,6 +23,7 @@ public class ProjectService {
 		Project newProject=new Project();
 		newProject.setProjectId(null);
 		newProject.setInternships(p.getInternships());
+		newProject.setName(p.getName());
 		
 		pRepository.save(newProject);
 	}
@@ -36,7 +37,6 @@ public class ProjectService {
 		Project existingProject=possibleProject.get();
 		existingProject.setName(p.getName());
 		existingProject.setInternships(p.getInternships());
-		
 		pRepository.save(existingProject);
 	}
 }

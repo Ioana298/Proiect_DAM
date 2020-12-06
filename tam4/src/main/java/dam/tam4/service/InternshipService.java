@@ -40,6 +40,10 @@ private final InternshipRepository iRepository;
 		Internship existingInternship=possibleInternship.get();
 		existingInternship.setName(i.getName());
 		existingInternship.setCandidates(i.getCandidates());
+		existingInternship.setType(i.getType());
+		existingInternship.setStartDate(i.getStartDate());
+		existingInternship.setEndDate(i.getEndDate());
+		existingInternship.setIsPaid(i.getIsPaid());
 		
 		iRepository.save(existingInternship);
 	}

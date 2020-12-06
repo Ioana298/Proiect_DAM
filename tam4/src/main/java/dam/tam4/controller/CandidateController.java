@@ -27,6 +27,7 @@ public class CandidateController {
 	@GetMapping("/candidate/getAllCandidates")
 	public ModelAndView getAllCandidates() {
 		ModelAndView mv = new ModelAndView("candidate");
+		mv.addObject("text", "text pentru test");
 		return mv;
 	}
 
