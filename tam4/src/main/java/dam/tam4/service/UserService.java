@@ -12,12 +12,13 @@ import dam.tam4.repository.UserRepository;
 @Service
 @Transactional
 public class UserService {
-private final UserRepository uRepository;
-	
+
+	private final UserRepository uRepository;
+
 	public UserService(UserRepository uRepository) {
 		this.uRepository = uRepository;
 	}
-	
+
 	public void addUser(User u) {
 		User newUser=new User();
 		newUser.setUserId(null);
@@ -29,14 +30,14 @@ private final UserRepository uRepository;
 		newUser.setLogin(u.getLogin());
 		newUser.setRoles(u.getRoles());
 		newUser.setTeam(u.getTeam());
-		
+
 		uRepository.save(newUser);
 	}
-	
+
 	public void deleteUser(User u) {
 		uRepository.delete(u);
 	}
-	
+
 	public void updateUser(User u) {
 		Optional <User> possibleUser = uRepository.findById(u.getUserId());
 		User existingUser=possibleUser.get();
