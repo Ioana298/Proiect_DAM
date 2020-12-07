@@ -55,6 +55,11 @@
 					<div class="card">
 						<div class="card-header">Candidates</div>
 						<div class="card-body">
+						
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary"
+								data-toggle="modal" data-target="#addCandidateModal">Add</button>
+
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
@@ -84,6 +89,44 @@
 
 				</div>
 				<!-- End Page Content -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal place -->
+	<div class="modal fade" tabindex="-1" id="addCandidateModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Add new candidate</h5>
+					<button type="button" class="btn-close" data-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<form>
+					
+						<div class="mb-3">
+							<label class="form-label">Name</label>
+							<input type="text" class="form-control" id="nameInput">
+						</div>
+						
+						<div class="mb-3">
+							<label class="form-label">Internships</label>
+							<select class ="form-control" id="internshipsSelect">
+							<option>Python Tester</option>
+							<option>Java Developer</option>
+							</select>
+						</div>
+						
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Add Candidate</button>
+				</div>
 			</div>
 		</div>
 	</div>
