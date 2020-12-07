@@ -1,5 +1,8 @@
 package dam.tam4.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dam.tam4.domain.Candidate;
+import dam.tam4.domain.User;
 import dam.tam4.service.CandidateService;
 
 @Controller
@@ -27,7 +31,8 @@ public class CandidateController {
 	@GetMapping("/candidate/getAllCandidates")
 	public ModelAndView getAllCandidates() {
 		ModelAndView mv = new ModelAndView("candidate");
-		mv.addObject("text", "text pentru test");
+		List<Candidate> candidates = new ArrayList<>();
+		mv.addObject("candidates", candidates);
 		return mv;
 	}
 

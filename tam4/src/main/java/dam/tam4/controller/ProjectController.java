@@ -52,7 +52,6 @@ public class ProjectController {
 		//transfer obiect in forntend
 		mv.addObject("projects", projects);
 		
-		
 		return mv;
 	}
 

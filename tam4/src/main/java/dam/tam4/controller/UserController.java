@@ -1,5 +1,8 @@
 package dam.tam4.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,19 +21,20 @@ public class UserController {
 	}
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
-	@PostMapping("/User/createUser") //terminatie URL
+	@PostMapping("/user/createUser") //terminatie URL
 	public void createUser(User c){
 		cService.addUser(c);
 	}
 
-	@GetMapping("/User/getAllUsers")
+	@GetMapping("/user/getAllUsers")
 	public ModelAndView getAllUsers() {
 		ModelAndView mv = new ModelAndView("User");
-		mv.addObject("text", "text pentru test");
+		List<User> users = new ArrayList<>();
+		mv.addObject("users", users);
 		return mv;
 	}
 
-	@GetMapping("/User/getUser")
+	@GetMapping("/user/getUser")
 	public ModelAndView getUser(@RequestParam(name = "id") Long id){
 		return null;
 	}

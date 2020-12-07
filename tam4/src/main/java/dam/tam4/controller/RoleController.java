@@ -18,19 +18,19 @@ public class RoleController {
 	}
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
-	@PostMapping("/Role/createRole") //terminatie URL
+	@PostMapping("/role/createRole") //terminatie URL
 	public void createRole(Role c){
 		cService.addRole(c);
 	}
 
-	@GetMapping("/Role/getAllRoles")
+	@GetMapping("/role/getAllRoles")
 	public ModelAndView getAllRoles() {
 		ModelAndView mv = new ModelAndView("Role");
 		mv.addObject("text", "text pentru test");
 		return mv;
 	}
 
-	@GetMapping("/Role/getRole")
+	@GetMapping("/role/getRole")
 	public ModelAndView getRole(@RequestParam(name = "id") Long id){
 		return null;
 	}
