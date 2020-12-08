@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +56,7 @@
 					<div class="card">
 						<div class="card-header">Users</div>
 						<div class="card-body">
+						
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
@@ -70,7 +72,8 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${users}" var="user">
+									<tr>
+										<c:forEach items="${users}" var="user">
 										<tr>
 											<td>${user.userId}</td>
 											<td>${user.name}</td>
@@ -78,10 +81,11 @@
 											<td>${user.password}</td>
 											<td>${user.phoneNumber}</td>
 											<td>${user.benefit}</td>
-											<td>${user.role}</td>
+											<td>${user.roles}</td>
 											<td>${user.team}</td>
 										</tr>
 									</c:forEach>
+									</tr>
 								</tbody>
 							</table>
 

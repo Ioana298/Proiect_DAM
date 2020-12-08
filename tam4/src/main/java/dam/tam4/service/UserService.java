@@ -49,6 +49,7 @@ public class UserService {
 		existingUser.setLogin(u.getLogin());
 		existingUser.setRoles(u.getRoles());
 		existingUser.setTeam(u.getTeam());
+		
 		uRepository.save(existingUser);
 	}
 }
