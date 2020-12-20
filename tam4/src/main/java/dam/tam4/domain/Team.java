@@ -81,4 +81,9 @@ public class Team {
 		return "Team [teamId=" + teamId + ", name=" + name + ", users=" + users + ", schedule=" + schedule
 				+ ", project=" + project + "]";
 	}
+
+	public void setInternships(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 }

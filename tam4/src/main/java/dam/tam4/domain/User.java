@@ -122,6 +122,11 @@ public class User {
 				+ "]";
 	}
 
+	public void setTaskId(long l) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 	

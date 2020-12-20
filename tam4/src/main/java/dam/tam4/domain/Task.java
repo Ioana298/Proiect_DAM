@@ -1,5 +1,6 @@
 package dam.tam4.domain;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -51,6 +52,26 @@ public class Task {
 	@Override
 	public String toString() {
 		return "Task [taskId=" + taskId + ", name=" + name + ", schedules=" + schedules + "]";
+	}
+
+	public void setDomain(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUser(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setStartDate(LocalDate of) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEndDate(LocalDate of) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
