@@ -38,7 +38,7 @@ public class InternshipController {
 		Internship myInternship= new Internship();
 		myInternship.setInternshipId(1L);
 		myInternship.setName("Internshipul nr 1");
-		myInternship.setType("testare");
+		myInternship.setProject(null);
 		myInternship.setStartDate(LocalDate.of(2021, 1, 1));
 		myInternship.setEndDate(LocalDate.of(2021, 4, 1));
 		myInternship.setIsPaid(true);

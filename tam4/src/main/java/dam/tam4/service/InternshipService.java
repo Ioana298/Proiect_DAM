@@ -22,11 +22,11 @@ private final InternshipRepository iRepository;
 		Internship newInternship=new Internship();
 		newInternship.setInternshipId(null);
 		newInternship.setName(i.getName());
-		newInternship.setType(i.getType());
 		newInternship.setStartDate(i.getStartDate());
 		newInternship.setEndDate(i.getEndDate());
 		newInternship.setIsPaid(i.getIsPaid());
 		newInternship.setCandidates(i.getCandidates());
+		newInternship.setProject(i.getProject());
 		
 		iRepository.save(newInternship);
 	}
@@ -40,7 +40,7 @@ private final InternshipRepository iRepository;
 		Internship existingInternship=possibleInternship.get();
 		existingInternship.setName(i.getName());
 		existingInternship.setCandidates(i.getCandidates());
-		existingInternship.setType(i.getType());
+		existingInternship.setProject(i.getProject());
 		existingInternship.setStartDate(i.getStartDate());
 		existingInternship.setEndDate(i.getEndDate());
 		existingInternship.setIsPaid(i.getIsPaid());

@@ -22,8 +22,8 @@ public class ProjectService {
 	public void addProject(Project p) {
 		Project newProject=new Project();
 		newProject.setProjectId(null);
-		newProject.setInternships(p.getInternships());
 		newProject.setName(p.getName());
+		newProject.setDomain(p.getDomain());
 		
 		pRepository.save(newProject);
 	}
@@ -36,7 +36,7 @@ public class ProjectService {
 		Optional <Project> possibleProject = pRepository.findById(p.getProjectId());
 		Project existingProject=possibleProject.get();
 		existingProject.setName(p.getName());
-		existingProject.setInternships(p.getInternships());
+		existingProject.setDomain(p.getDomain());
 		pRepository.save(existingProject);
 	}
 }

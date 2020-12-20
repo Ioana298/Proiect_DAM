@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
@@ -25,11 +26,14 @@ public class Internship {
 	
 	@NotNull
 	private String name;
-	private String type;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private Boolean isPaid;
 
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(name="projectID", nullable=false)
+	private Project project;
+	
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "candidates_internships", joinColumns = @JoinColumn(name = "internshipId"), inverseJoinColumns = @JoinColumn(name = "candidateId"))
 	private List<Candidate> candidates;
@@ -48,14 +52,6 @@ public class Internship {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public LocalDate getStartDate() {
@@ -82,6 +78,14 @@ public class Internship {
 		this.isPaid = isPaid;
 	}
 
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
 	public List<Candidate> getCandidates() {
 		return candidates;
 	}
@@ -92,8 +96,8 @@ public class Internship {
 
 	@Override
 	public String toString() {
-		return "Internship [internshipId=" + internshipId + ", name=" + name + ", type=" + type + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", isPaid=" + isPaid + ", candidates=" + candidates + "]";
+		return "Internship [internshipId=" + internshipId + ", name=" + name + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", isPaid=" + isPaid + ", project=" + project + ", candidates=" + candidates + "]";
 	}
 
 }

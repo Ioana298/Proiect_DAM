@@ -56,13 +56,18 @@
 					<div class="card">
 						<div class="card-header">Internships</div>
 						<div class="card-body">
+						
+						<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary"
+								data-toggle="modal" data-target="#addInternshipModal">Add</button>
+						
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
 									<tr>
 										<th>ID</th>
 										<th>Name</th>
-										<th>Type</th>
+										<th>Project</th>
 										<th>Start date</th>
 										<th>End date</th>
 										<th>Is paid</th>
@@ -73,7 +78,7 @@
 										<tr>
 											<td>${internship.internshipId}</td>
 											<td>${internship.name}</td>
-											<td>${internship.type}</td>
+											<td>${internship.project}</td>
 											<td>${internship.startDate}</td>
 											<td>${internship.endDate}</td>
 											<td>${internship.isPaid}</td>
@@ -92,6 +97,58 @@
 		</div>
 	</div>
 
+
+	<!-- Modal place -->
+	<div class="modal fade" tabindex="-1" id="addInternshipModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Add new internship</h5>
+					<button type="button" class="btn-close" data-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<form>
+					
+						<div class="mb-3">
+							<label class="form-label">Name</label>
+							<input type="text" class="form-control" id="nameInput">
+						</div>
+							<div class="mb-3">
+							<label class="form-label">Project</label>
+							<select class ="form-control" id="projectSelect">
+							<option>Alfa</option>
+							<option>Beta</option>
+							<option>Gama</option>
+							<option>Delta</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Start date</label>
+							<input type="date" class="form-control" id="startDateInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">End date</label>
+							<input type="date" class="form-control" id="endDateInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Is Paid</label>
+							<input type="checkbox" class="form-control" id="isPaidInput">
+						</div>
+						
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Add Internship</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fas fa-angle-up"></i>

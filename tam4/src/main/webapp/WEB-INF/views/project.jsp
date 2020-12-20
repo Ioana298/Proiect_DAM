@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,37 +56,78 @@
 					<div class="card">
 						<div class="card-header">Projects</div>
 						<div class="card-body">
-							<h1>${text}</h1>
+
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#addProjectModal">Add</button>
+
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
 									<tr>
 										<th>ID</th>
 										<th>Name</th>
-										
+										<th>Domain</th>
+
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${projects}" var="project">
-									<tr>
-										<td>${project.projectId}</td>
-										<td>${project.name}</td>
-									
-									</tr>
+									<c:forEach items="${projects}" var="project">
+										<tr>
+											<td>${project.projectId}</td>
+											<td>${project.name}</td>
+											<td>${project.domain}</td>
+
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
-
-						</div>
-						
-						
-						
-						
 						</div>
 					</div>
-					
+
 				</div>
 				<!-- End Page Content -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal place -->
+	<div class="modal fade" tabindex="-1" id="addProjectModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Add new project</h5>
+					<button type="button" class="btn-close" data-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<form>
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								class="form-control" id="nameInput">
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Domain</label> <select
+								class="form-control" id="domainSelect">
+								<option>Development</option>
+								<option>Testing</option>
+								<option>Accounting</option>
+								<option>Marketing</option>
+								<option>Human Resources</option>
+							</select>
+						</div>
+
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Add Project</button>
+				</div>
 			</div>
 		</div>
 	</div>

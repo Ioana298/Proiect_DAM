@@ -15,6 +15,8 @@ public class Candidate {
 
 	@NotNull
 	private String name;
+	private String email;
+	private Long phoneNumber;
 
 	@ManyToMany(mappedBy = "candidates")
 	private List<Internship> internships;
@@ -35,6 +37,22 @@ public class Candidate {
 		this.name = name;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
 	public List<Internship> getInternships() {
 		return internships;
 	}
@@ -45,7 +63,10 @@ public class Candidate {
 
 	@Override
 	public String toString() {
-		return "Candidate [candidateId=" + candidateId + ", name=" + name + ", internships=" + internships + "]";
+		return "Candidate [candidateId=" + candidateId + ", name=" + name + ", email=" + email + ", phoneNumber="
+				+ phoneNumber + ", internships=" + internships + "]";
 	}
-
+	
 }
+
+	

@@ -22,38 +22,30 @@ public class Project {
 	
 	@NotNull
 	private String name;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Internship> internships;
-
+	private String domain;
 	public Long getProjectId() {
 		return projectId;
 	}
-
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public List<Internship> getInternships() {
-		return internships;
+	public String getDomain() {
+		return domain;
 	}
-
-	public void setInternships(List<Internship> internships) {
-		this.internships = internships;
+	public void setDomain(String domain) {
+		this.domain = domain;
 	}
-
 	@Override
 	public String toString() {
-		return "Project [projectId=" + projectId + ", name=" + name + ", internships=" + internships + "]";
+		return "Project [projectId=" + projectId + ", name=" + name + ", domain=" + domain + "]";
 	}
 	
-	
+
+
 }

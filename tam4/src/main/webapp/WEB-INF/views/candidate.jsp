@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,32 +57,33 @@
 					<div class="card">
 						<div class="card-header">Candidates</div>
 						<div class="card-body">
-						
+
 							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary"
-								data-toggle="modal" data-target="#addCandidateModal">Add</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#addCandidateModal">Add</button>
 
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
 									<tr>
+										<th>ID</th>
 										<th>Name</th>
-										<th>Position</th>
-										<th>Office</th>
-										<th>Age</th>
-										<th>Start date</th>
-										<th>Salary</th>
+										<th>Email</th>
+										<th>PhoneNumber</th>
+										<th>Internship</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Donna Snider</td>
-										<td>Customer Support</td>
-										<td>New York</td>
-										<td>27</td>
-										<td>2011/01/25</td>
-										<td>$112,000</td>
-									</tr>
+									<c:forEach items="${candidates}" var="candidate">
+										<tr>
+											<td>${candidate.candidateId}</td>
+											<td>${candidate.name}</td>
+											<td>${candidate.email}</td>
+											<td>${candidate.phoneNumber}</td>
+											<td>${candidate.internships}</td>
+
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 
@@ -94,42 +97,52 @@
 	</div>
 
 	<!-- Modal place -->
-	<div class="modal fade" tabindex="-1" id="addCandidateModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Add new candidate</h5>
-					<button type="button" class="btn-close" data-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
+	<form action="/candidate/createCandidate" method="POST">
+		<div class="modal fade" tabindex="-1" id="addCandidateModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add new candidate</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
 
-					<form>
-					
-						<div class="mb-3">
-							<label class="form-label">Name</label>
-							<input type="text" class="form-control" id="nameInput">
-						</div>
-						
-						<div class="mb-3">
-							<label class="form-label">Internships</label>
-							<select class ="form-control" id="internshipsSelect">
-							<option>Python Tester</option>
-							<option>Java Developer</option>
-							</select>
-						</div>
-						
-					</form>
+						<form>
 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Add Candidate</button>
+							<div class="mb-3">
+								<label class="form-label">Name</label> <input type="text" name="name"
+									class="form-control" id="nameInput">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Email</label> <input type="email" name="email"
+									class="form-control" id="emailInput">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Phone Number</label> <input type="tel" name="phoneNumber"
+									class="form-control" id="phoneInput">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Internships</label> <select
+									class="form-control" id="internshipsSelect">
+									<option>Python Tester</option>
+									<option>Java Developer</option>
+								</select>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Add
+							Candidate</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
@@ -141,9 +154,9 @@
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="/resources/js/sb-admin-2.min.js"></script>
-    <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="/resources/js/demo/datatables-demo.js"></script>
+	<script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<script src="/resources/js/demo/datatables-demo.js"></script>
 
 </body>
 

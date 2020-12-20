@@ -1,5 +1,6 @@
 package dam.tam4.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -19,9 +20,12 @@ public class CandidateService {
 	}
 	
 	public void addCandidate(Candidate c) {
+		
 		Candidate newCandidate=new Candidate();
 		newCandidate.setCandidateId(null);
 		newCandidate.setName(c.getName());
+		newCandidate.setEmail(c.getEmail());
+		newCandidate.setPhoneNumber(c.getPhoneNumber());
 		newCandidate.setInternships(c.getInternships());
 		
 		cRepository.save(newCandidate);
@@ -35,9 +39,13 @@ public class CandidateService {
 		Optional <Candidate> possibleCandidate = cRepository.findById(c.getCandidateId());
 		Candidate existingCandidate=possibleCandidate.get();
 		existingCandidate.setName(c.getName());
+		existingCandidate.setEmail(c.getEmail());
+		existingCandidate.setPhoneNumber(c.getPhoneNumber());
 		existingCandidate.setInternships(c.getInternships());
 		
 		cRepository.save(existingCandidate);
 	}
-	
+	public List <Candidate> getAllCandidates(){
+		return cRepository.findAll();
+	}
 }

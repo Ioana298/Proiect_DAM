@@ -24,15 +24,16 @@ public class CandidateController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/candidate/createCandidate") //terminatie URL
-	public void createCandidate(Candidate c){
+	public ModelAndView createCandidate(Candidate c){
 		cService.addCandidate(c);
+		return new ModelAndView ("redirect:/candidate/getAllCandidates");
 	}
 
 	@GetMapping("/candidate/getAllCandidates")
 	public ModelAndView getAllCandidates() {
 		ModelAndView mv = new ModelAndView("candidate");
-		List<Candidate> candidates = new ArrayList<>();
-		mv.addObject("candidates", candidates);
+		mv.addObject("candidates", cService.getAllCandidates());
+		
 		return mv;
 	}
 

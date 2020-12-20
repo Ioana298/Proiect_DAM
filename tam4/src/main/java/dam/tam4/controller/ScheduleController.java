@@ -1,5 +1,6 @@
 package dam.tam4.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import dam.tam4.domain.Schedule;
 import dam.tam4.service.ScheduleService;
 
-
-
 @Controller
 public class ScheduleController {
 		
 		private final ScheduleService sService;
 		
-		public ServiceController(ScheduleService sService) {
+		public ScheduleController(ScheduleService sService) {
 			this.sService = sService;
 		}
 
@@ -33,6 +32,13 @@ public class ScheduleController {
 		public ModelAndView getAllSchedules() {
 			ModelAndView mv = new ModelAndView("schedule");
 			List<Schedule> schedules = new ArrayList<>();
+			
+			Schedule mySchedule=new Schedule();
+			mySchedule.setScheduleId(10L);
+			mySchedule.setDate(LocalDate.of(2021, 1, 1));
+			mySchedule.setTasks(null);
+			
+			schedules.add(mySchedule);
 			mv.addObject("schedules", schedules);
 			return mv;
 		}

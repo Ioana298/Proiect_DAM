@@ -38,12 +38,15 @@ public class ProjectController {
 		Project myProject= new Project();
 		myProject.setProjectId(1L);
 		myProject.setName("Proiectul nr 1");
-		myProject.setInternships(null);
+		myProject.setDomain(null);
+
 		
 		Project myProject2= new Project();
 		myProject2.setProjectId(2L);
 		myProject2.setName("Proiectul nr 2");
-		myProject2.setInternships(null);
+		myProject.setDomain(null);
+
+		
 		
 		//adaugare obiect in lista
 		projects.add(myProject);
