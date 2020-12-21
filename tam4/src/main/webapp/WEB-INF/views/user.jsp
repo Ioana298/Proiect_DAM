@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +56,7 @@
 					<div class="card">
 						<div class="card-header">Users</div>
 						<div class="card-body">
-						
+
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
@@ -74,17 +74,17 @@
 								<tbody>
 									<tr>
 										<c:forEach items="${users}" var="user">
-										<tr>
-											<td>${user.userId}</td>
-											<td>${user.name}</td>
-											<td>${user.email}</td>
-											<td>${user.password}</td>
-											<td>${user.phoneNumber}</td>
-											<td>${user.benefit}</td>
-											<td>${user.roles}</td>
-											<td>${user.team}</td>
-										</tr>
-									</c:forEach>
+											<tr>
+												<td>${user.userId}</td>
+												<td>${user.name}</td>
+												<td>${user.email}</td>
+												<td>${user.password}</td>
+												<td>${user.phoneNumber}</td>
+												<td>${user.benefit}</td>
+												<td>${user.roles}</td>
+												<td>${user.team}</td>
+											</tr>
+										</c:forEach>
 									</tr>
 								</tbody>
 							</table>
@@ -108,9 +108,9 @@
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="/resources/js/sb-admin-2.min.js"></script>
-    <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="/resources/js/demo/datatables-demo.js"></script>
+	<script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<script src="/resources/js/demo/datatables-demo.js"></script>
 
 </body>
 

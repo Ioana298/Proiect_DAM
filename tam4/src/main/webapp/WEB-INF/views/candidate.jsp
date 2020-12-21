@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -108,29 +108,25 @@
 					</div>
 					<div class="modal-body">
 
-						<form>
-
-							<div class="mb-3">
-								<label class="form-label">Name</label> <input type="text" name="name"
-									class="form-control" id="nameInput">
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Email</label> <input type="email" name="email"
-									class="form-control" id="emailInput">
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Phone Number</label> <input type="tel" name="phoneNumber"
-									class="form-control" id="phoneInput">
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Internships</label> <select
-									class="form-control" id="internshipsSelect">
-									<option>Python Tester</option>
-									<option>Java Developer</option>
-								</select>
-							</div>
-
-						</form>
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Email</label> <input type="email"
+								name="email" class="form-control" id="emailInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Phone Number</label> <input type="tel"
+								name="phoneNumber" class="form-control" id="phoneInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Internships</label> <select
+								class="form-control" id="internshipsSelect">
+								<option>Python Tester</option>
+								<option>Java Developer</option>
+							</select>
+						</div>
 
 					</div>
 					<div class="modal-footer">
