@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<<<<<<< HEAD
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-=======
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
->>>>>>> 3149d993afb136d670849e44834987e545f21f37
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,11 +74,11 @@
 										<th>Benefit</th>
 										<th>Role</th>
 										<th>Team</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
-										<c:forEach items="${users}" var="user">
-<<<<<<< HEAD
+									<c:forEach items="${users}" var="user">
 										<tr>
 											<td>${user.userId}</td>
 											<td>${user.name}</td>
@@ -88,25 +88,19 @@
 											<td>${user.benefit}</td>
 											<td>${user.roles}</td>
 											<td>${user.team}</td>
+											<td><a href="#" data-transfer="${user}"
+												data-toggle="modal" data-target="#updateUserModal"
+												class="btn btn-warning btn-circle"> <i
+													class="fas fa-pencil-alt"></i>
+											</a> <a
+												href="/user/deleteUser?id=${user.userId}"
+												class="btn btn-danger btn-circle"> <i
+													class="fas fa-trash"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
-=======
-											<tr>
-												<td>${user.userId}</td>
-												<td>${user.name}</td>
-												<td>${user.email}</td>
-												<td>${user.password}</td>
-												<td>${user.phoneNumber}</td>
-												<td>${user.benefit}</td>
-												<td>${user.roles}</td>
-												<td>${user.team}</td>
-											</tr>
-										</c:forEach>
-									</tr>
->>>>>>> 3149d993afb136d670849e44834987e545f21f37
 								</tbody>
 							</table>
-
 						</div>
 					</div>
 
