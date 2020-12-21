@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Internships</title>
+<title>Internship page</title>
 
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
@@ -56,11 +57,11 @@
 					<div class="card">
 						<div class="card-header">Internships</div>
 						<div class="card-body">
-						
-						<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary"
-								data-toggle="modal" data-target="#addInternshipModal">Add</button>
-						
+
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#addInternshipModal">Add</button>
+
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
@@ -71,6 +72,7 @@
 										<th>Start date</th>
 										<th>End date</th>
 										<th>Is paid</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -78,11 +80,19 @@
 										<tr>
 											<td>${internship.internshipId}</td>
 											<td>${internship.name}</td>
-											<td>${internship.project}</td>
+											<td>${internship.project.name}</td>
 											<td>${internship.startDate}</td>
 											<td>${internship.endDate}</td>
 											<td>${internship.isPaid}</td>
-
+											<td><a href="#" data-transfer="${internship}"
+												data-toggle="modal" data-target="#updateInternshipModal"
+												class="btn btn-warning btn-circle"> <i
+													class="fas fa-pencil-alt"></i>
+											</a> <a
+												href="/internship/deleteInternship?id=${internship.internshipId}"
+												class="btn btn-danger btn-circle"> <i
+													class="fas fa-trash"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -99,56 +109,106 @@
 
 
 	<!-- Modal place -->
-	<div class="modal fade" tabindex="-1" id="addInternshipModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Add new internship</h5>
-					<button type="button" class="btn-close" data-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
+	<form action="/internship/createInternship" method="POST">
+		<div class="modal fade" tabindex="-1" id="addInternshipModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add new internship</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
 
-					<form>
-					
 						<div class="mb-3">
-							<label class="form-label">Name</label>
-							<input type="text" class="form-control" id="nameInput">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
 						</div>
-							<div class="mb-3">
-							<label class="form-label">Project</label>
-							<select class ="form-control" id="projectSelect">
-							<option>Alfa</option>
-							<option>Beta</option>
-							<option>Gama</option>
-							<option>Delta</option>
+						<div class="mb-3">
+							<label class="form-label">Project</label> <select
+								class="form-control" name="project" id="projectSelect">
+								<c:forEach var="p" items="${projects}">
+									<option value="${p.projectId}">${p.name}</option>
+								</c:forEach>
 							</select>
 						</div>
 						<div class="mb-3">
-							<label class="form-label">Start date</label>
-							<input type="date" class="form-control" id="startDateInput">
+							<label class="form-label">Start date</label> <input type="date"
+								name="startDate" class="form-control" id="startDateInput">
 						</div>
 						<div class="mb-3">
-							<label class="form-label">End date</label>
-							<input type="date" class="form-control" id="endDateInput">
+							<label class="form-label">End date</label> <input type="date"
+								name="endDate" class="form-control" id="endDateInput">
 						</div>
 						<div class="mb-3">
-							<label class="form-label">Is Paid</label>
-							<input type="checkbox" class="form-control" id="isPaidInput">
+							<label class="form-label">Is Paid</label> <input type="checkbox"
+								name="isPaid" class="form-control" id="isPaidInput">
 						</div>
-						
-					</form>
 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Add Internship</button>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Add
+							Internship</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</form>
+
+
+	<!-- Modal place -->
+	<form action="/internship/updateInternship" method="POST">
+		<div class="modal fade" tabindex="-1" id="updateInternshipModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Update internship</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Project</label> <select
+								class="form-control" name="project" id="projectSelect">
+								<c:forEach var="p" items="${projects}">
+									<option value="${p.projectId}">${p.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Start date</label> <input type="date"
+								name="startDate" class="form-control" id="startDateInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">End date</label> <input type="date"
+								name="endDate" class="form-control" id="endDateInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Is Paid</label> <input type="checkbox"
+								name="isPaid" class="form-control" id="isPaidInput">
+						</div>
+						<input type="hidden" id="internshipIdInput" name="internshipId"
+							value="3">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Update
+							Internship</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fas fa-angle-up"></i>
@@ -162,6 +222,25 @@
 	<script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
 	<script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 	<script src="/resources/js/demo/datatables-demo.js"></script>
+
+	<script>
+	//not functional yet
+	
+	//triggered when modal is about to be shown
+	$('#updateInternshipModal').on('show.bs.modal', function(e) {
+
+	    //get data-id attribute of the clicked element
+	    var internship = $(e.relatedTarget).data('transfer');
+
+	    //populate the textbox
+	    $(e.currentTarget).find('input[name="name"]').val(${internship.name});
+	    $(e.currentTarget).find('input[name="project"]').val(${internship.project.name});
+	    $(e.currentTarget).find('input[name="startDate"]').val(${internship.startDate});
+	    $(e.currentTarget).find('input[name="endDate"]').val(${internship.endDate});
+	    $(e.currentTarget).find('input[name="isPaid"]').val(${internship.isPaid});
+	});
+	</script>
+
 
 </body>
 

@@ -1,5 +1,6 @@
 package dam.tam4.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -20,6 +21,7 @@ public class ProjectService {
 	}
 	
 	public void addProject(Project p) {
+		
 		Project newProject=new Project();
 		newProject.setProjectId(null);
 		newProject.setName(p.getName());
@@ -28,8 +30,8 @@ public class ProjectService {
 		pRepository.save(newProject);
 	}
 	
-	public void deleteProject(Project p) {
-		pRepository.delete(p);
+	public void deleteProject(Long id) {
+		pRepository.delete(pRepository.findById(id).get());
 	}
 
 	public void updateProject(Project p) {
@@ -37,6 +39,10 @@ public class ProjectService {
 		Project existingProject=possibleProject.get();
 		existingProject.setName(p.getName());
 		existingProject.setDomain(p.getDomain());
+		
 		pRepository.save(existingProject);
+	}
+	public List <Project> getAllProjects(){
+		return pRepository.findAll();
 	}
 }

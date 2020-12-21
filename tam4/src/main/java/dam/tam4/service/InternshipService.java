@@ -1,11 +1,12 @@
 package dam.tam4.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
-import dam.tam4.domain.Candidate;
 import dam.tam4.domain.Internship;
 import dam.tam4.repository.InternshipRepository;
 
@@ -19,6 +20,7 @@ private final InternshipRepository iRepository;
 	}
 	
 	public void addInternship(Internship i) {
+		
 		Internship newInternship=new Internship();
 		newInternship.setInternshipId(null);
 		newInternship.setName(i.getName());
@@ -31,8 +33,8 @@ private final InternshipRepository iRepository;
 		iRepository.save(newInternship);
 	}
 	
-	public void deleteInternship(Internship i) {
-		iRepository.delete(i);
+	public void deleteInternship(Long id) {
+		iRepository.delete(iRepository.findById(id).get());
 	}
 	
 	public void updateInternship(Internship i) {
@@ -48,5 +50,8 @@ private final InternshipRepository iRepository;
 		iRepository.save(existingInternship);
 	}
 
-
+	public List <Internship> getAllInternships(){
+		return iRepository.findAll();
+	}
 }
+

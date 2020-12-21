@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -71,6 +71,7 @@
 										<th>Email</th>
 										<th>PhoneNumber</th>
 										<th>Internship</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -81,7 +82,15 @@
 											<td>${candidate.email}</td>
 											<td>${candidate.phoneNumber}</td>
 											<td>${candidate.internships}</td>
-
+											<td><a href="#" data-transfer="${candidate}"
+												data-toggle="modal" data-target="#updateCandidateModal"
+												class="btn btn-warning btn-circle"> <i
+													class="fas fa-pencil-alt"></i>
+											</a> <a
+												href="/candidate/deleteCandidate?id=${candidate.candidateId}"
+												class="btn btn-danger btn-circle"> <i
+													class="fas fa-trash"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -108,35 +117,78 @@
 					</div>
 					<div class="modal-body">
 
-						<form>
-
-							<div class="mb-3">
-								<label class="form-label">Name</label> <input type="text" name="name"
-									class="form-control" id="nameInput">
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Email</label> <input type="email" name="email"
-									class="form-control" id="emailInput">
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Phone Number</label> <input type="tel" name="phoneNumber"
-									class="form-control" id="phoneInput">
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Internships</label> <select
-									class="form-control" id="internshipsSelect">
-									<option>Python Tester</option>
-									<option>Java Developer</option>
-								</select>
-							</div>
-
-						</form>
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Email</label> <input type="email"
+								name="email" class="form-control" id="emailInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Phone Number</label> <input type="tel"
+								name="phoneNumber" class="form-control" id="phoneInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Internships</label> <select
+								class="form-control" id="internshipsSelect">
+								<option>Python Tester</option>
+								<option>Java Developer</option>
+							</select>
+						</div>
 
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary">Add
+							Candidate</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!-- Modal place -->
+	<form action="/candidate/updateCandidate" method="POST">
+		<div class="modal fade" tabindex="-1" id="updateCandidateModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Update candidate</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Email</label> <input type="email"
+								name="email" class="form-control" id="emailInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Phone Number</label> <input type="tel"
+								name="phoneNumber" class="form-control" id="phoneInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Internship</label> <select
+								class="form-control" id="internshipSelect">
+								<c:forEach var="p" items="${internships}">
+									<option value="${i.internshipId}">${i.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<input type="hidden" id="candidateIdInput" name="candidateId"
+							value=" ">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Update
 							Candidate</button>
 					</div>
 				</div>

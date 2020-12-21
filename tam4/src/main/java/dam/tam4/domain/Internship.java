@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.sun.istack.NotNull;
 
 @Entity
@@ -26,8 +28,13 @@ public class Internship {
 	
 	@NotNull
 	private String name;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate startDate;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate endDate;
+	
 	private Boolean isPaid;
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
