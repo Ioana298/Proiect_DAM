@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import dam.tam4.domain.Candidate;
 import dam.tam4.domain.User;
 import dam.tam4.service.UserService;
 
@@ -23,34 +24,15 @@ public class UserController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/user/createUser") //terminatie URL
-	public void createUser(User u){
+	public ModelAndView createUser(User u){
 		uService.addUser(u);
+		return new ModelAndView ("redirect:/user/getAllUsers");
 	}
 
 	@GetMapping("/user/getAllUsers")
 	public ModelAndView getAllUsers() {
 		ModelAndView mv = new ModelAndView("user");
-		
-		//creare lista pentru obiecte
-		List<User> users = new ArrayList<>();
-		
-		//creare obiect pt lista
-		User myUser= new User();
-		myUser.setUserId(1L);
-		myUser.setName("Emily Rose");
-		myUser.setEmail("emrose@gmail.com");
-		myUser.setPassword("abc123");
-		myUser.setPhoneNumber(7345290129L);
-		myUser.setBenefit("Certificate");
-		myUser.setLogin(null);
-		myUser.setRoles(null);
-		myUser.setTeam(null);
-		
-		//adaugare obiect
-		users.add(myUser);
-		
-		//transfer obiect in frontend
-		mv.addObject("users", users);
+		mv.addObject("users", uService.getAllUsers());
 		
 		return mv;
 	}

@@ -1,12 +1,15 @@
 package dam.tam4.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import dam.tam4.domain.Candidate;
 import dam.tam4.domain.User;
+import dam.tam4.repository.CandidateRepository;
 import dam.tam4.repository.UserRepository;
 
 @Service
@@ -14,11 +17,11 @@ import dam.tam4.repository.UserRepository;
 public class UserService {
 
 	private final UserRepository uRepository;
-
+	
 	public UserService(UserRepository uRepository) {
 		this.uRepository = uRepository;
 	}
-
+	
 	public void addUser(User u) {
 		User newUser=new User();
 		newUser.setUserId(null);
@@ -51,5 +54,8 @@ public class UserService {
 		existingUser.setTeam(u.getTeam());
 		
 		uRepository.save(existingUser);
+	}
+	public List <User> getAllUsers(){
+		return uRepository.findAll();
 	}
 }
