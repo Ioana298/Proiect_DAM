@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -71,11 +70,11 @@
 										<th>Benefit</th>
 										<th>Role</th>
 										<th>Team</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach items="${users}" var="user">
-
 										<tr>
 											<td>${user.userId}</td>
 											<td>${user.name}</td>
@@ -85,11 +84,19 @@
 											<td>${user.benefit}</td>
 											<td>${user.roles}</td>
 											<td>${user.team}</td>
+											<td><a href="#" data-transfer="${user}"
+												data-toggle="modal" data-target="#updateUserModal"
+												class="btn btn-warning btn-circle"> <i
+													class="fas fa-pencil-alt"></i>
+											</a> <a
+												href="/user/deleteUser?id=${user.userId}"
+												class="btn btn-danger btn-circle"> <i
+													class="fas fa-trash"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
-
 						</div>
 					</div>
 
