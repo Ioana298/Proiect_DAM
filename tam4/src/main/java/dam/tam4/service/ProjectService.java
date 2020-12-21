@@ -30,8 +30,8 @@ public class ProjectService {
 		pRepository.save(newProject);
 	}
 	
-	public void deleteProject(Project p) {
-		pRepository.delete(p);
+	public void deleteProject(Long id) {
+		pRepository.delete(pRepository.findById(id).get());
 	}
 
 	public void updateProject(Project p) {

@@ -69,6 +69,7 @@
 										<th>ID</th>
 										<th>Name</th>
 										<th>Domain</th>
+										<th>Actions</th>
 
 									</tr>
 								</thead>
@@ -78,7 +79,15 @@
 											<td>${project.projectId}</td>
 											<td>${project.name}</td>
 											<td>${project.domain}</td>
-
+											<td><a href="#" data-transfer="${project}"
+												data-toggle="modal" data-target="#updateProjectModal"
+												class="btn btn-warning btn-circle"> <i
+													class="fas fa-pencil-alt"></i>
+											</a> <a
+												href="/project/deleteProject?id=${project.projectId}"
+												class="btn btn-danger btn-circle"> <i
+													class="fas fa-trash"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -125,6 +134,47 @@
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary">Add Project</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	
+	<!-- Modal place -->
+	<form action="/project/updateProject" method="POST">
+		<div class="modal fade" tabindex="-1" id="updateProjectModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Update project</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Domain</label> <select
+								class="form-control" name="domain" id="domainSelect">
+								<option>Development</option>
+								<option>Testing</option>
+								<option>Accounting</option>
+								<option>Marketing</option>
+								<option>Human Resources</option>
+							</select>
+						</div>
+						<input type="hidden" id="candidateIdInput" name="candidateId"
+							value=" ">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">UpdateProject</button>
 					</div>
 				</div>
 			</div>

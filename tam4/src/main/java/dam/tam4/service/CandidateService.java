@@ -31,8 +31,8 @@ public class CandidateService {
 		cRepository.save(newCandidate);
 	}
 	
-	public void deleteCandidate(Candidate c) {
-		cRepository.delete(c);
+	public void deleteCandidate(Long id) {
+		cRepository.delete(cRepository.findById(id).get());
 	}
 	
 	public void updateCandidate(Candidate c) {
