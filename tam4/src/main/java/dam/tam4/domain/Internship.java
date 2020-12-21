@@ -41,8 +41,8 @@ public class Internship {
 	@JoinColumn(name="projectID", nullable=false)
 	private Project project;
 	
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "candidates_internships", joinColumns = @JoinColumn(name = "internshipId"), inverseJoinColumns = @JoinColumn(name = "candidateId"))
+	
+	@ManyToMany(mappedBy = "internships")
 	private List<Candidate> candidates;
 
 	public Long getInternshipId() {
@@ -104,7 +104,7 @@ public class Internship {
 	@Override
 	public String toString() {
 		return "Internship [internshipId=" + internshipId + ", name=" + name + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", isPaid=" + isPaid + ", project=" + project + ", candidates=" + candidates + "]";
+				+ endDate + ", isPaid=" + isPaid + ", project=" + project + "]";
 	}
 
 }

@@ -18,7 +18,10 @@ public class Candidate {
 	private String email;
 	private Long phoneNumber;
 
-	@ManyToMany(mappedBy = "candidates")
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "candidates_internships", 
+			joinColumns = @JoinColumn(name = "candidateId"), 
+			inverseJoinColumns = @JoinColumn(name = "internshipId"))
 	private List<Internship> internships;
 
 	public Long getCandidateId() {

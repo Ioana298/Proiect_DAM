@@ -24,6 +24,7 @@ public class CandidateController {
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/candidate/createCandidate") //terminatie URL
 	public ModelAndView createCandidate(Candidate c){
+		System.out.println(c);
 		cService.addCandidate(c);
 		return new ModelAndView ("redirect:/candidate/getAllCandidates");
 	}

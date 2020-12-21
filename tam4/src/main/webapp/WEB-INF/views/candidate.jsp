@@ -81,7 +81,13 @@
 											<td>${candidate.name}</td>
 											<td>${candidate.email}</td>
 											<td>${candidate.phoneNumber}</td>
-											<td>${candidate.internships}</td>
+											<td>
+												<div class="text-center">
+													<c:forEach items="${candidate.internships}" var="i">
+														<c:out value="${i.name}" />
+													</c:forEach>
+												</div>
+											</td>
 											<td><a href="#" data-transfer="${candidate}"
 												data-toggle="modal" data-target="#updateCandidateModal"
 												class="btn btn-warning btn-circle"> <i
@@ -130,10 +136,11 @@
 								name="phoneNumber" class="form-control" id="phoneInput">
 						</div>
 						<div class="mb-3">
-							<label class="form-label">Internships</label> <select
-								class="form-control" id="internshipsSelect">
-								<option>Python Tester</option>
-								<option>Java Developer</option>
+							<label class="form-label">Internships</label> <select multiple
+								name="internships" class="form-control" id="internshipsSelect">
+								<c:forEach var="i" items="${internships}">
+									<option value="${i.internshipId}">${i.name}</option>
+								</c:forEach>
 							</select>
 						</div>
 
@@ -174,9 +181,9 @@
 								name="phoneNumber" class="form-control" id="phoneInput">
 						</div>
 						<div class="mb-3">
-							<label class="form-label">Internship</label> <select
+							<label class="form-label">Internship</label> <select multiple
 								class="form-control" id="internshipSelect">
-								<c:forEach var="p" items="${internships}">
+								<c:forEach var="i" items="${internships}">
 									<option value="${i.internshipId}">${i.name}</option>
 								</c:forEach>
 							</select>
