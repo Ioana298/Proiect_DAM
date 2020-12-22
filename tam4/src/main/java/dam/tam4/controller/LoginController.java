@@ -14,7 +14,7 @@ public class LoginController {
 	}
 	
 	
-	@GetMapping("/landingPage")
+	@GetMapping(value = {"/", "/landingPage"})
 	public ModelAndView afterLogin() {
 		ModelAndView mv = new ModelAndView("landingPage");
 		return mv;
