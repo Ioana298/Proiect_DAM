@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import dam.tam4.domain.Internship;
 import dam.tam4.domain.Project;
 import dam.tam4.service.ProjectService;
 

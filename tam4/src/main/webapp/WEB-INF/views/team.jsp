@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,31 +63,23 @@
 									<tr>
 										<th>ID</th>
 										<th>Name</th>
-										
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${teams}" var="team">
-									<tr>
-										<td>${team.teamId}</td>
-										<td>${team.teamname}</td>
-									
-									</tr>
+									<c:forEach items="${teams}" var="team">
+										<tr>
+											<td>${team.teamId}</td>
+											<td>${team.name}</td>
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
-
-						</div>
-						
-						
-						
-						
 						</div>
 					</div>
-					
 				</div>
-				<!-- End Page Content -->
+
 			</div>
+			<!-- End Page Content -->
 		</div>
 	</div>
 

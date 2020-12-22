@@ -7,9 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import dam.tam4.domain.Candidate;
 import dam.tam4.domain.User;
-import dam.tam4.repository.CandidateRepository;
 import dam.tam4.repository.UserRepository;
 
 @Service

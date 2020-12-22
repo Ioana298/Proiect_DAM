@@ -41,8 +41,8 @@
 
 	<!-- Nav Item - Projects, Schedule, Teams-->
 	<li class="nav-item"><a class="nav-link" href="/project/getAllProjects"> <i class="fas fa-chart-line"></i> <span>Projects</span></a></li>
-	<li class="nav-item"><a class="nav-link" href="index.html"> <i class="far fa-calendar-alt"></i> <span>Schedule</span></a></li>
-	<li class="nav-item"><a class="nav-link" href="index.html"> <i class="fas fa-users"></i> <span>Teams</span></a></li>
+	<li class="nav-item"><a class="nav-link" href="/common/schedule"> <i class="far fa-calendar-alt"></i> <span>Schedule</span></a></li>
+	<li class="nav-item"><a class="nav-link" href="/team/getAllTeams"> <i class="fas fa-users"></i> <span>Teams</span></a></li>
 
 	<hr class="sidebar-divider d-none d-md-block">
 	<div class="sidebar-heading">Admin</div>

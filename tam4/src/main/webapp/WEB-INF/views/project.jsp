@@ -70,7 +70,6 @@
 										<th>Name</th>
 										<th>Domain</th>
 										<th>Actions</th>
-
 									</tr>
 								</thead>
 								<tbody>

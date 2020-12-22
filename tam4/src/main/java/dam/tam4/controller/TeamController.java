@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import dam.tam4.domain.Project;
 import dam.tam4.domain.Team;
-import dam.tam4.service.ProjectService;
 import dam.tam4.service.TeamService;
 
 @Controller

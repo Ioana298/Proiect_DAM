@@ -1,0 +1,52 @@
+
+/* context menu icons */
+.icon:before {
+    position: absolute;
+    left: 0px;
+    margin-left: 8px;
+    margin-top: 3px;
+    width: 14px;
+    height: 14px;
+    content: '';
+}
+
+.icon-blue:before { background-color: #a2c4c9; }
+.icon-green:before { background-color: #b6d7a8; }
+.icon-yellow:before { background-color: #ffe599; }
+.icon-red:before { background-color: #ea9999; }
+
+
+/* columns */
+
+.wrap {
+    display: flex;
+}
+
+.left {
+    margin-right: 10px;
+}
+
+.right {
+    flex-grow: 1;
+}
+
+#dp > div:nth-child(5){
+	display: none;
+}
+
+button {
+    display: inline-block;
+    text-align: center;
+    background-color: #3c78d8;
+    border: 1px solid #1155cc;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 5px;
+    /*width: 80px;*/
+    text-decoration: none;
+}
+.month_default_cell{
+	height: 95px !important;
+}
