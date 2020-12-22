@@ -61,7 +61,7 @@
 								cellspacing="0">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>Id</th>
 										<th>Name</th>
 										
 									</tr>
@@ -71,7 +71,21 @@
 									<tr>
 										<td>${team.teamId}</td>
 										<td>${team.teamname}</td>
-									
+										<td><div class="text-center">
+													<c:forEach items="${team.users}" var="u">
+														<c:out value="${u.name}" />
+													</c:forEach>
+												</div>
+												</td>
+												<td><a href="#" data-transfer="${team}"
+												data-toggle="modal" data-target="#updateTeamModal"
+												class="btn btn-warning btn-circle"> <i
+													class="fas fa-pencil-alt"></i>
+											</a> <a
+												href="/team/deleteTeam?id=${team.teamId}"
+												class="btn btn-danger btn-circle"> <i
+													class="fas fa-trash"></i>
+											</a></td>					
 									</tr>
 									</c:forEach>
 								</tbody>
@@ -90,7 +104,82 @@
 			</div>
 		</div>
 	</div>
+<!-- Modal place -->
+	<form action="/team/createTeam" method="POST">
+		<div class="modal fade" tabindex="-1" id="addTeamModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add new team</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
 
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+					
+						<div class="mb-3">
+							<label class="form-label">Users</label> <select
+								class="form-control" id="usersSelect">
+								<c:forEach var="u" items="${users}">
+									<option value="${u.userId}">${u.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Add
+							Team</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!-- Modal place -->
+	<form action="/team/updateTeam" method="POST">
+		<div class="modal fade" tabindex="-1" id="updateTeamModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Update team</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>					
+						<div class="mb-3">
+							<label class="form-label">User</label> <select
+								class="form-control" id="internshipSelect">
+								<c:forEach var="p" items="${users}">
+									<option value="${u.userId}">${u.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<input type="hidden" id="teamIdInput" name="teamId"
+							value=" ">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Update
+							Team</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fas fa-angle-up"></i>
