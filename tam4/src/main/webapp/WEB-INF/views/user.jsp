@@ -138,7 +138,7 @@
 							<label class="form-label">Benefit</label> <input type="tel"
 								name="benefit" class="form-control" id="benefitInput">
 						</div>
-						<div class="mb-3">
+						<!-- <div class="mb-3">
 							<label class="form-label">Roles</label> <select multiple
 								name="roles" class="form-control" id="rolesSelect">
 								<option>Manager</option>
@@ -146,8 +146,8 @@
 								<option>Team Manager</option>
 								<option>Intern</option>
 							</select>
-						</div>
-						<div class="mb-3">
+						</div> -->
+						<!-- <div class="mb-3">
 							<label class="form-label">Team</label> <select
 								class="form-control" name="team" id="teamSelect">
 								<option>Red Team</option>
@@ -156,7 +156,7 @@
 								<option>Yellow Team</option>
 								<option>Orange Team</option>
 							</select>
-						</div>
+						</div> -->
 
 					</div>
 					<div class="modal-footer">

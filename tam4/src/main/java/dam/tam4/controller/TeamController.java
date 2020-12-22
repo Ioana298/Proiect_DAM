@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dam.tam4.domain.Team;
+import dam.tam4.service.ProjectService;
 import dam.tam4.service.TeamService;
 import dam.tam4.service.UserService;
 
@@ -14,10 +15,12 @@ import dam.tam4.service.UserService;
 public class TeamController {
 	private final TeamService tmService;
 	private final UserService uService;
+	private final ProjectService pService;
 
-	public TeamController(TeamService tmService, UserService uService) {
+	public TeamController(TeamService tmService, UserService uService, ProjectService pService) {
 		this.tmService = tmService;
 		this.uService = uService;
+		this.pService = pService;
 	}
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
@@ -33,6 +36,7 @@ public class TeamController {
 		ModelAndView mv = new ModelAndView("team");
 		mv.addObject("teams", tmService.getAllTeams());
 		mv.addObject("users", uService.getAllUsers());
+		mv.addObject("projects", pService.getAllProjects());
 		
 		return mv;
 	}

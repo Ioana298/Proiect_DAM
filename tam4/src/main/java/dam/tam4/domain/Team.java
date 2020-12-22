@@ -30,7 +30,7 @@ public class Team {
 	private List<User> users;
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinColumn(name="scheduleId", nullable=false)
+	@JoinColumn(name="scheduleId")
 	private Schedule schedule;
 
 	@OneToOne(cascade = CascadeType.ALL)

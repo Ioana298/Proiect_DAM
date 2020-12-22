@@ -56,13 +56,19 @@
 					<div class="card">
 						<div class="card-header">Teams</div>
 						<div class="card-body">
-							<h1>${text}</h1>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#addTeamModal">Add</button>
+
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
 									<tr>
 										<th>Id</th>
 										<th>Name</th>
+										<th>Project</th>
+										<th>Users</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -70,11 +76,14 @@
 										<tr>
 											<td>${team.teamId}</td>
 											<td>${team.name}</td>
-											<td><div class="text-center">
+											<td>${team.project.name}</td>
+											<td>
+												<div class="text-center">
 													<c:forEach items="${team.users}" var="u">
 														<c:out value="${u.name}" />
 													</c:forEach>
-												</div></td>
+												</div>
+											</td>
 											<td><a href="#" data-transfer="${team}"
 												data-toggle="modal" data-target="#updateTeamModal"
 												class="btn btn-warning btn-circle"> <i
@@ -113,8 +122,17 @@
 						</div>
 
 						<div class="mb-3">
-							<label class="form-label">Users</label> <select
-								class="form-control" id="usersSelect">
+							<label class="form-label">Project</label> <select
+								class="form-control" name="project" id="projectSelect">
+								<c:forEach var="p" items="${projects}">
+									<option value="${p.projectId}">${p.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label">Users</label> <select multiple
+								class="form-control" name="users" id="usersSelect">
 								<c:forEach var="u" items="${users}">
 									<option value="${u.userId}">${u.name}</option>
 								</c:forEach>
