@@ -69,6 +69,21 @@ public class Candidate {
 		return "Candidate [candidateId=" + candidateId + ", name=" + name + ", email=" + email + ", phoneNumber="
 				+ phoneNumber + ", internships=" + internships + "]";
 	}
+
+	public void setUsers(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTeamId1(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTeamId(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 
