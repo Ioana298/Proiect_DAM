@@ -26,6 +26,13 @@ public class Role {
 	@ManyToMany(mappedBy = "roles")
 	private List<User> users;
 
+	public Role() {
+	}
+
+	public Role(String roleName) {
+		this.roleName = roleName;
+	}
+
 	public Long getRoleId() {
 		return roleId;
 	}
@@ -52,7 +59,7 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role [roleId=" + roleId + ", roleName=" + roleName + ", users=" + users + "]";
+		return "Role [roleId=" + roleId + ", roleName=" + roleName + "]";
 	}
 	
 	

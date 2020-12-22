@@ -26,7 +26,7 @@ public class Team {
 	@NotNull
 	private String name;
 	
-	@OneToMany(mappedBy="team")
+	@OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, mappedBy = "team")
 	private List<User> users;
 
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})

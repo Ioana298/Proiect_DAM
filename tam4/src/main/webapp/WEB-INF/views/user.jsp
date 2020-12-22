@@ -84,8 +84,14 @@
 											<td>${user.email}</td>
 											<td>${user.phoneNumber}</td>
 											<td>${user.benefit}</td>
-											<td>${user.roles}</td>
-											<td>${user.team}</td>
+											<td>
+												<div class="text-center">
+													<c:forEach items="${user.roles}" var="r">
+														<c:out value="${r.roleName}" />
+													</c:forEach>
+												</div>
+											</td>
+											<td>${user.team.name}</td>
 											
 											<td><a href="#" data-transfer="${user}"
 												data-toggle="modal" data-target="#updateUserModal"

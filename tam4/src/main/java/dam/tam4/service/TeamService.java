@@ -1,5 +1,6 @@
 package dam.tam4.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,29 +8,41 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import dam.tam4.domain.Role;
 import dam.tam4.domain.Team;
+import dam.tam4.domain.User;
 import dam.tam4.repository.TeamRepository;
+import dam.tam4.repository.UserRepository;
 
 @Service
 @Transactional
 public class TeamService {
 
 	private final TeamRepository tmRepository;
-	
+	private final UserRepository uRepository;
 
-	public TeamService(TeamRepository tmRepository) {
+
+	public TeamService(TeamRepository tmRepository, UserRepository uRepository) {
 		this.tmRepository = tmRepository;
+		this.uRepository = uRepository;
 	}
-
-	public void addTeam(Team tm) {
-
+	
+	public void addTeam(Team tm){
+		for (User u: tm.getUsers()) {
+			User existentU = uRepository.findById(u.getUserId()).get();
+			
+			existentU.setTeam(saveTeam(tm));	
+		}
+	}
+	
+	public Team saveTeam(Team tm) {
 		Team newTeam = new Team();
 		newTeam.setTeamId(null);
 		newTeam.setName(tm.getName());
-		newTeam.setProject(tm.getProject());
-		newTeam.setUsers(tm.getUsers());
-
+		newTeam.setProject(tm.getProject());		
 		tmRepository.save(newTeam);
+		
+		return newTeam;
 	}
 
 	public void deleteTeam(Long id) {
@@ -41,11 +54,12 @@ public class TeamService {
 		Team existingTeam=possibleTeam.get();
 		existingTeam.setName(tm.getName());
 		existingTeam.setProject(tm.getProject());
-		existingTeam.setUsers(tm.getUsers());
 
 		tmRepository.save(existingTeam);
 	}
 	public List <Team> getAllTeams(){
 		return tmRepository.findAll();
 	}
+
+
 }

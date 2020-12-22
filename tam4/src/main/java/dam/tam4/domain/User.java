@@ -40,7 +40,6 @@ public class User {
 	private Login login;
 	
 	@ManyToOne
-	@JoinColumn(name="teamId")
 	private Team team;
 	
 	public Long getUserId() {

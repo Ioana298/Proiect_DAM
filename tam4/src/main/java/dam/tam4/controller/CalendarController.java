@@ -39,8 +39,8 @@ public class CalendarController {
     public ModelAndView events() {
     	ModelAndView mv = new ModelAndView("schedule");
     	
-    	LocalDateTime start = LocalDateTime.of(2020,  01,  01, 00, 00);
-    	LocalDateTime end = LocalDateTime.of(2020,  01,  31, 00, 00);
+    	LocalDateTime start = LocalDateTime.of(2020,  12,  01, 00, 00);
+    	LocalDateTime end = LocalDateTime.of(2020,  12,  31, 00, 00);
     	
     	mv.addObject("events", er.findBetween(start, end));
         return mv;
