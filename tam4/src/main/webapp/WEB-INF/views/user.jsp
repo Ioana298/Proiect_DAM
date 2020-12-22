@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -55,8 +55,12 @@
 				<div class="container-fluid">
 
 					<div class="card">
-						<div class="card-header">Users</div>
+						<div class="card-header">Employees</div>
 						<div class="card-body">
+
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#addUserModal">Add</button>
 
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
@@ -65,10 +69,9 @@
 										<th>ID</th>
 										<th>Name</th>
 										<th>Email</th>
-										<th>Password</th>
 										<th>PhoneNumber</th>
 										<th>Benefit</th>
-										<th>Role</th>
+										<th>Roles</th>
 										<th>Team</th>
 										<th>Actions</th>
 									</tr>
@@ -79,11 +82,11 @@
 											<td>${user.userId}</td>
 											<td>${user.name}</td>
 											<td>${user.email}</td>
-											<td>${user.password}</td>
 											<td>${user.phoneNumber}</td>
 											<td>${user.benefit}</td>
 											<td>${user.roles}</td>
 											<td>${user.team}</td>
+											
 											<td><a href="#" data-transfer="${user}"
 												data-toggle="modal" data-target="#updateUserModal"
 												class="btn btn-warning btn-circle"> <i
@@ -97,6 +100,7 @@
 									</c:forEach>
 								</tbody>
 							</table>
+
 						</div>
 					</div>
 
@@ -105,6 +109,128 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal place -->
+	<form action="/user/createUser" method="POST">
+		<div class="modal fade" tabindex="-1" id="addUserModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add new user</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Email</label> <input type="email"
+								name="email" class="form-control" id="emailInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Phone Number</label> <input type="tel"
+								name="phoneNumber" class="form-control" id="phoneInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Benefit</label> <input type="tel"
+								name="benefit" class="form-control" id="benefitInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Roles</label> <select multiple
+								name="roles" class="form-control" id="rolesSelect">
+								<option>Manager</option>
+								<option>HR Manager</option>
+								<option>Team Manager</option>
+								<option>Intern</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Team</label> <select
+								class="form-control" name="team" id="teamSelect">
+								<option>Red Team</option>
+								<option>Blue Team</option>
+								<option>Green Team</option>
+								<option>Yellow Team</option>
+								<option>Orange Team</option>
+							</select>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Add
+							Employee</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!-- Modal place -->
+	<form action="/user/updateUser" method="POST">
+		<div class="modal fade" tabindex="-1" id="updateUserModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Update employee</h5>
+						<button type="button" class="btn-close" data-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+
+						<div class="mb-3">
+							<label class="form-label">Name</label> <input type="text"
+								name="name" class="form-control" id="nameInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Email</label> <input type="email"
+								name="email" class="form-control" id="emailInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Phone Number</label> <input type="tel"
+								name="phoneNumber" class="form-control" id="phoneInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Benefit</label> <input type="tel"
+								name="benefit" class="form-control" id="benefitInput">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Roles</label> <select multiple
+								name="roles" class="form-control" id="rolesSelect">
+								<option>Manager</option>
+								<option>HR Manager</option>
+								<option>Team Manager</option>
+								<option>Intern</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Team</label> <select
+								class="form-control" name="team" id="teamSelect">
+								<option>Red Team</option>
+								<option>Blue Team</option>
+								<option>Green Team</option>
+								<option>Yellow Team</option>
+								<option>Orange Team</option>
+							</select>
+						</div>
+						<input type="hidden" id="userIdInput" name="userId"
+							value=" ">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Update
+							Employee</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i

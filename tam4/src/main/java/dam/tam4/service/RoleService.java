@@ -1,5 +1,8 @@
 package dam.tam4.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -25,5 +28,17 @@ private final RoleRepository rRepository;
 		
 	public void deleteRole(Role r) {
 		rRepository.delete(r);
+	}
+	
+	public void updateRole(Role p) {
+		Optional <Role> possibleRole = rRepository.findById(p.getRoleId());
+		Role existingRole=possibleRole.get();
+		existingRole.setRoleName(p.getRoleName());
+
+		
+		rRepository.save(existingRole);
+	}
+	public List <Role> getAllRoles(){
+		return rRepository.findAll();
 	}
 }
