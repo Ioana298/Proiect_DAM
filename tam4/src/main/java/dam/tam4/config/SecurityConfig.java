@@ -21,26 +21,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		this.dataSource = dataSource;
 	}
 	// logare cu utilizatorii din baza de date
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.eraseCredentials(false).jdbcAuthentication().dataSource(dataSource)
-//		.passwordEncoder(new BCryptPasswordEncoder())
-//		.usersByUsernameQuery("select username, password, active from user_details where username=?")
-//		.authoritiesByUsernameQuery("select username, authority from authorities where username=?");
-//	}
-	
-	//logare doar cu un utilizator
 	@Override
-	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-          .withUser("user").password(passwordEncoder().encode("user"))
-          .authorities("ROLE_USER", "ROLE_CANDIDATE");
-    }
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.eraseCredentials(false).jdbcAuthentication().dataSource(dataSource)
+		.passwordEncoder(new BCryptPasswordEncoder())
+		.usersByUsernameQuery("select username, password, active from login where username=?")
+		.authoritiesByUsernameQuery("SELECT l.username as username, r.role_name as role FROM users u "
+				+ " INNER JOIN users_roles ur ON u.user_id = ur.user_id "
+				+ " INNER JOIN roles r ON ur.role_id = r.role_id" 
+				+ " INNER JOIN login l ON l.id = u.login_id WHERE l.username = ?");
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/candidate/**").hasAnyRole("CANDIDATE", "ADMIN")
+		.antMatchers("/candidate/**").hasAnyRole("CANDIDATE", "USER")
 		.antMatchers("/common/**").hasAnyRole("USER")
 		.antMatchers("/**").hasAnyRole("USER")
 		.and()

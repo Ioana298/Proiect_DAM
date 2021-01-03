@@ -21,6 +21,9 @@ public class Login {
 	
 	@NotNull
 	private String password;
+	
+	@NotNull
+	private Boolean active;
 
 	public Long getId() {
 		return id;
@@ -46,8 +49,16 @@ public class Login {
 		this.password = password;
 	}
 
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "Login [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active + "]";
 	}
 }

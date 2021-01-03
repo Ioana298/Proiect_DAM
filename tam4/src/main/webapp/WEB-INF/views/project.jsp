@@ -166,8 +166,8 @@
 								<option>Human Resources</option>
 							</select>
 						</div>
-						<input type="hidden" id="candidateIdInput" name="candidateId"
-							value=" ">
+						<input type="hidden" id="projectIdInput" name="projectId"
+							value="1">
 
 					</div>
 					<div class="modal-footer">

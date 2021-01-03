@@ -1,6 +1,8 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<!DOCTYPE html>
 <!-- Topbar -->
 <nav
 	class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -166,7 +168,7 @@
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
 			role="button" data-toggle="dropdown" aria-haspopup="true"
 			aria-expanded="false"> <span
-				class="mr-2 d-none d-lg-inline text-gray-600 small">user</span> <img
+				class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication property="principal.username" /></span> <img
 				class="img-profile rounded-circle"
 				src="/resources/img/undraw_profile.svg">
 		</a> <!-- Dropdown - User Information -->

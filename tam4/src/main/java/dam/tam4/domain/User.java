@@ -26,22 +26,19 @@ public class User {
 	@NotNull
 	private String name;
 	private String email;
-	private String password;
 	private Long phoneNumber;
 	private String benefit;
-	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name= "users_roles",
-	joinColumns = @JoinColumn(name = "userId"),
-	inverseJoinColumns = @JoinColumn(name = "roleId"))
+
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
 	private List<Role> roles;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Login login;
-	
+
 	@ManyToOne
 	private Team team;
-	
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -64,14 +61,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public Long getPhoneNumber() {
@@ -116,22 +105,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", phoneNumber=" + phoneNumber + ", benefit=" + benefit + ", roles=" + roles + ", login=" + login
-				+ "]";
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber
+				+ ", benefit=" + benefit + ", roles=" + roles + ", login=" + login + "]";
 	}
-
-	public void setTaskId(long l) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-
-	
-	
-	
-
-	
-	
 }

@@ -9,20 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "roles")
 public class Role {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long roleId;
-	
+
 	@NotNull
 	private String roleName;
-	
+
 	@ManyToMany(mappedBy = "roles")
 	private List<User> users;
 
@@ -61,8 +60,4 @@ public class Role {
 	public String toString() {
 		return "Role [roleId=" + roleId + ", roleName=" + roleName + "]";
 	}
-	
-	
-	
-	
 }

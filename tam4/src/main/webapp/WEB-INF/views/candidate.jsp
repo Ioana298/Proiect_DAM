@@ -182,7 +182,7 @@
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Internship</label> <select multiple
-								class="form-control" id="internshipSelect">
+								class="form-control" name= "internship" id="internshipSelect">
 								<c:forEach var="i" items="${internships}">
 									<option value="${i.internshipId}">${i.name}</option>
 								</c:forEach>
