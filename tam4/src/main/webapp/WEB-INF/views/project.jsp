@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +60,10 @@
 						<div class="card-body">
 
 							<!-- Button trigger modal -->
+							<sec:authorize access="hasAnyRole('ROLE_HR','ROLE_MANAGER','ROLE_TEAMLIDER')">
 							<button type="button" class="btn btn-primary" data-toggle="modal"
 								data-target="#addProjectModal">Add</button>
+							</sec:authorize>
 
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">

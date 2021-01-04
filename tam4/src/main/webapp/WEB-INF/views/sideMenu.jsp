@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -7,6 +8,7 @@
 	id="accordionSidebar">
 
 	<!-- Sidebar - Brand -->
+
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
 		href="/landingPage">
@@ -19,7 +21,7 @@
 	</a>
 
 	<hr class="sidebar-divider my-0">
-
+	
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item"><a class="nav-link" href="/landingPage"> <i
 			class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
@@ -27,29 +29,43 @@
 	<hr class="sidebar-divider">
 	<div class="sidebar-heading">Candidate</div>
 
+
 	<!-- Nav Item - Internships -->
 	<li class="nav-item"><a class="nav-link" href="/internship/getAllInternships"> <i class="fas fa-tasks"></i> <span>Internships</span></a></li>
+	
+<sec:authorize access="hasAnyRole('ROLE_HR','ROLE_MANAGER','ROLE_CANDIDATE','ROLE_TEAMLIDER')">
 	<hr class="sidebar-divider">
 	<div class="sidebar-heading">Recruitment</div>
 
 	<!-- Nav Item - Candidates, Employee -->
 	<li class="nav-item"><a class="nav-link" href="/candidate/getAllCandidates"> <i class="fas fa-user-graduate"></i> <span>Candidates</span></a></li>
+</sec:authorize>
+
+<sec:authorize access="hasAnyRole('ROLE_HR','ROLE_MANAGER','ROLE_TEAMLIDER')">
 	<li class="nav-item"><a class="nav-link" href="/user/getAllUsers"> <i class="fas fa-user-tie"></i> <span>Employees</span></a></li>
+</sec:authorize>
 
 	<hr class="sidebar-divider">
 	<div class="sidebar-heading">Management</div>
 
+<sec:authorize access="hasAnyRole('ROLE_HR','ROLE_MANAGER','ROLE_USER','ROLE_TEAMLIDER')">
 	<!-- Nav Item - Projects, Schedule, Teams-->
 	<li class="nav-item"><a class="nav-link" href="/project/getAllProjects"> <i class="fas fa-chart-line"></i> <span>Projects</span></a></li>
-	<li class="nav-item"><a class="nav-link" href="/common/schedule"> <i class="far fa-calendar-alt"></i> <span>Schedule</span></a></li>
 	<li class="nav-item"><a class="nav-link" href="/team/getAllTeams"> <i class="fas fa-users"></i> <span>Teams</span></a></li>
+</sec:authorize>
 
+<sec:authorize access="hasAnyRole('ROLE_HR','ROLE_MANAGER','ROLE_USER','ROLE_TEAMLIDER','ROLE_CANDIDATE')">
+	<li class="nav-item"><a class="nav-link" href="/common/schedule"> <i class="far fa-calendar-alt"></i> <span>Schedule</span></a></li>
+</sec:authorize>
+
+<sec:authorize access="hasAnyRole('ROLE_MANAGER','ROLE_TEAMLIDER')">	
 	<hr class="sidebar-divider d-none d-md-block">
 	<div class="sidebar-heading">Admin</div>
 
 	<!-- Nav Item - Projects -->
 	<li class="nav-item"><a class="nav-link" href="index.html"> <i class="fas fa-cogs"></i> <span>Settings</span></a></li>
-
+</sec:authorize>
+	
 	<hr class="sidebar-divider d-none d-md-block">
 
 	<!-- Sidebar Toggler (Sidebar) -->

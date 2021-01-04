@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +60,10 @@
 						<div class="card-body">
 
 							<!-- Button trigger modal -->
+							<sec:authorize access="hasAnyRole('ROLE_HR')">
 							<button type="button" class="btn btn-primary" data-toggle="modal"
 								data-target="#addUserModal">Add</button>
+							</sec:authorize>
 
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
@@ -144,26 +147,13 @@
 							<label class="form-label">Benefit</label> <input type="tel"
 								name="benefit" class="form-control" id="benefitInput">
 						</div>
-						<!-- <div class="mb-3">
+							<div class="mb-3">
 							<label class="form-label">Roles</label> <select multiple
 								name="roles" class="form-control" id="rolesSelect">
-								<option>Manager</option>
-								<option>HR Manager</option>
-								<option>Team Manager</option>
-								<option>Intern</option>
+								<c:forEach var="r" items="${roles}">
+									<option value="${r.roleId}">${r.roleName}</option>
+								</c:forEach>
 							</select>
-						</div> -->
-						<!-- <div class="mb-3">
-							<label class="form-label">Team</label> <select
-								class="form-control" name="team" id="teamSelect">
-								<option>Red Team</option>
-								<option>Blue Team</option>
-								<option>Green Team</option>
-								<option>Yellow Team</option>
-								<option>Orange Team</option>
-							</select>
-						</div> -->
-
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
@@ -204,23 +194,20 @@
 							<label class="form-label">Benefit</label> <input type="tel"
 								name="benefit" class="form-control" id="benefitInput">
 						</div>
-						<div class="mb-3">
+							<div class="mb-3">
 							<label class="form-label">Roles</label> <select multiple
 								name="roles" class="form-control" id="rolesSelect">
-								<option>Manager</option>
-								<option>HR Manager</option>
-								<option>Team Manager</option>
-								<option>Intern</option>
+								<c:forEach var="r" items="${roles}">
+									<option value="${r.roleId}">${r.roleName}</option>
+								</c:forEach>
 							</select>
 						</div>
-						<div class="mb-3">
+							<div class="mb-3">
 							<label class="form-label">Team</label> <select
 								class="form-control" name="team" id="teamSelect">
-								<option>Red Team</option>
-								<option>Blue Team</option>
-								<option>Green Team</option>
-								<option>Yellow Team</option>
-								<option>Orange Team</option>
+								<c:forEach var="t" items="${teams}">
+									<option value="${t.teamId}">${t.name}</option>
+								</c:forEach>
 							</select>
 						</div>
 						<input type="hidden" id="userIdInput" name="userId"
