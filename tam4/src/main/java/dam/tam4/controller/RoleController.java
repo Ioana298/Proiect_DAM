@@ -3,6 +3,8 @@ package dam.tam4.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +25,8 @@ public class RoleController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/role/createRole") //terminatie URL
-	public void createRole(Role r){
-		rService.addRole(r);
+	public void createRole(HttpServletRequest request, Role r){
+		rService.addRole(request, r);
 	}
 
 	@GetMapping("/role/getAllRoles")

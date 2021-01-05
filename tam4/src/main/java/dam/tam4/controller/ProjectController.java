@@ -1,5 +1,7 @@
 package dam.tam4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +22,8 @@ public class ProjectController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/project/createProject") //terminatie URL
-	public ModelAndView createProject(Project p){
-		pService.addProject(p);
+	public ModelAndView createProject(HttpServletRequest request, Project p){
+		pService.addProject(request, p);
 		return new ModelAndView ("redirect:/project/getAllProjects");
 	}
 
@@ -40,15 +42,15 @@ public class ProjectController {
 	}
 	
 	@PostMapping("/project/updateProject")
-	public ModelAndView updateInternship(Project p) {
-		pService.updateProject(p);
+	public ModelAndView updateInternship(HttpServletRequest request, Project p) {
+		pService.updateProject(request, p);
 	
 		return new ModelAndView ("redirect:/project/getAllProjects");
 	}
 	
 	@GetMapping("/project/deleteProject")
-	public ModelAndView deleteInternship(@RequestParam(name = "id") Long id) {
-		pService.deleteProject(id);
+	public ModelAndView deleteInternship(HttpServletRequest request, @RequestParam(name = "id") Long id) {
+		pService.deleteProject(request, id);
 	
 		return new ModelAndView ("redirect:/project/getAllProjects");
 	}
