@@ -1,5 +1,7 @@
 package dam.tam4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,9 +25,9 @@ public class CandidateController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/candidate/createCandidate") //terminatie URL
-	public ModelAndView createCandidate(Candidate c){
+	public ModelAndView createCandidate(HttpServletRequest request, Candidate c){
 		System.out.println(c);
-		cService.addCandidate(c);
+		cService.addCandidate(request, c);
 		return new ModelAndView ("redirect:/candidate/getAllCandidates");
 	}
 
@@ -44,15 +46,15 @@ public class CandidateController {
 	}
 	
 	@PostMapping("/candidate/updateCandidate")
-	public ModelAndView updateCandidate(Candidate c) {
-		cService.updateCandidate(c);
+	public ModelAndView updateCandidate(HttpServletRequest request, Candidate c) {
+		cService.updateCandidate(request, c);
 	
 		return new ModelAndView ("redirect:/candidate/getAllCandidates");
 	}
 	
 	@GetMapping("/candidate/deleteCandidate")
-	public ModelAndView deleteCandidate(@RequestParam(name = "id") Long id) {
-		cService.deleteCandidate(id);
+	public ModelAndView deleteCandidate(HttpServletRequest request, @RequestParam(name = "id") Long id) {
+		cService.deleteCandidate(request, id);
 	
 		return new ModelAndView ("redirect:/candidate/getAllCandidates");
 	}

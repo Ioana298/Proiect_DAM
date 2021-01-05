@@ -1,0 +1,33 @@
+2021-01-05-01-33-48  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:35:53.701  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:36:56.299  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:42:23.444  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:42:29.335  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:42:55.448  INFO --- [http-nio-8080-exec-3] dam.tam4.service.CandidateService -> addCandidate | Candidate Candidate [candidateId=4, name=candidatpokp, email=kmlkmlkm@lkmlkm.con, phoneNumber=345678, internships=[Internship [internshipId=1, name=Internship 1, startDate=2020-10-01, endDate=2020-11-01, isPaid=true, project=Project [projectId=1, name=Proiect 3, domain=Development]]]]was added
+2021-01-05-01:43:41.722  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:44:14.424  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:46:50.975  INFO --- [restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:46:55.392  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:52:33.706  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:52:52.887  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:53:38.101  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:53:54.893  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:56:05.169  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:56:20.670  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-01:59:54.148  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:00:24.622  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:12:13.910  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:12:18.542  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:12:25.944  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:12:49.988  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:14:46.351  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:15:26.783  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:15:47.673  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:16:11.475  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:20:19.450  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:20:43.048  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:21:22.770  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-02:21:39.484  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-11:17:13.495  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-11:17:35.480  INFO --- [  http-nio-8080-exec-6] dam.tam4.service.CandidateService -> addCandidate | Candidate Candidate [candidateId=5, name=gggg, email=balea.larisa1598@gmail.com, phoneNumber=740642848, internships=[Internship [internshipId=2, name=Internship 2, startDate=2020-12-01, endDate=2020-02-01, isPaid=true, project=Project [projectId=2, name=Proiect 2, domain=Testing]]]] was added by gabriel.buzila
+2021-01-05-11:41:46.852  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!

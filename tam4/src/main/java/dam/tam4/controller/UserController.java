@@ -35,6 +35,7 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("user");
 		mv.addObject("users", uService.getAllUsers());
 		mv.addObject("roles", rService.getAllRoles());
+		
 		return mv;
 	}
 

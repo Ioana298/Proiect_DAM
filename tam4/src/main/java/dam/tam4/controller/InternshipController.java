@@ -1,5 +1,7 @@
 package dam.tam4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,8 +26,8 @@ public class InternshipController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/internship/createInternship") //terminatie URL
-	public ModelAndView createInternship(Internship i){
-		iService.addInternship(i);
+	public ModelAndView createInternship(HttpServletRequest request,Internship i){
+		iService.addInternship(request, i);
 		return new ModelAndView ("redirect:/internship/getAllInternships");
 	}
 
@@ -44,15 +46,15 @@ public class InternshipController {
 	}
 
 	@PostMapping("/internship/updateInternship")
-	public ModelAndView updateInternship(Internship i) {
-		iService.updateInternship(i);
+	public ModelAndView updateInternship(HttpServletRequest request,Internship i) {
+		iService.updateInternship(request, i);
 	
 		return new ModelAndView ("redirect:/internship/getAllInternships");
 	}
 	
 	@GetMapping("/internship/deleteInternship")
-	public ModelAndView deleteInternship(@RequestParam(name = "id") Long id) {
-		iService.deleteInternship(id);
+	public ModelAndView deleteInternship(HttpServletRequest request, @RequestParam(name = "id") Long id) {
+		iService.deleteInternship(request, id);
 	
 		return new ModelAndView ("redirect:/internship/getAllInternships");
 	}

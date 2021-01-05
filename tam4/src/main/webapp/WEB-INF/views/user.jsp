@@ -201,7 +201,7 @@
 									<option value="${r.roleId}">${r.roleName}</option>
 								</c:forEach>
 							</select>
-						</div>
+<%-- 						</div>
 							<div class="mb-3">
 							<label class="form-label">Team</label> <select
 								class="form-control" name="team" id="teamSelect">
@@ -209,7 +209,7 @@
 									<option value="${t.teamId}">${t.name}</option>
 								</c:forEach>
 							</select>
-						</div>
+						</div> --%>
 						<input type="hidden" id="userIdInput" name="userId"
 							value=" ">
 
