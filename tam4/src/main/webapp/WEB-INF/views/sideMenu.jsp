@@ -63,7 +63,7 @@
 	<div class="sidebar-heading">Admin</div>
 
 	<!-- Nav Item - Projects -->
-	<li class="nav-item"><a class="nav-link" href="index.html"> <i class="fas fa-cogs"></i> <span>Settings</span></a></li>
+	<li class="nav-item"><a class="nav-link" href="/swagger-ui/index.html"> <i class="fas fa-cogs"></i> <span>Settings</span></a></li>
 </sec:authorize>
 	
 	<hr class="sidebar-divider d-none d-md-block">

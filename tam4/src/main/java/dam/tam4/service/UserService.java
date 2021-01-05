@@ -35,7 +35,7 @@ public class UserService {
 		newUser.setBenefit(u.getBenefit());
 		newUser.setLogin(LoginService.generateCredentials(u.getName()));
 		newUser.setTeam(u.getTeam());
-		newUser.setRoles(rService.getDefaultRole());
+		newUser.setRoles(u.getRoles());
 
 		uRepository.save(newUser);
 		log.info("User " + newUser.toString() + " was added by "+ request.getUserPrincipal().getName());

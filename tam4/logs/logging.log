@@ -33,3 +33,20 @@
 2021-01-05-11:41:46.852  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
 2021-01-05-12:57:11.415  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
 2021-01-05-12:57:11.457  INFO --- [  restartedMain] dam.tam4.config.DbInit -> fillRoles | Populating Roles
+2021-01-05-16:49:13.718  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-16:54:50.109  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-16:55:40.334  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-16:59:23.633  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:07:48.517  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:09:35.545  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:14:02.817  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:14:23.510  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:14:37.631  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:14:44.643  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:16:02.953  INFO --- [  http-nio-8080-exec-3] dam.tam4.service.ProjectService -> addProject | Project Project [projectId=4, name=23456423, domain=Marketing] was added by Larisa.Balea
+2021-01-05-17:16:11.518  INFO --- [  http-nio-8080-exec-4] dam.tam4.service.ProjectService -> deleteProject | Project Project [projectId=4, name=23456423, domain=Marketing] was deleted by Larisa.Balea
+2021-01-05-17:20:29.820  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:21:27.694  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:22:02.142  INFO --- [  http-nio-8080-exec-9] dam.tam4.service.UserService -> addUser | User User [userId=8, name=ddd ddd, email=asdas@dasda.com, phoneNumber=123456789, benefit=fsdfsdf, roles=[Role [roleId=1, roleName=ROLE_USER], Role [roleId=2, roleName=ROLE_MANAGER], Role [roleId=3, roleName=ROLE_HR], Role [roleId=4, roleName=ROLE_TEAMLIDER], Role [roleId=5, roleName=ROLE_CANDIDATE]], login=Login [id=6, username=ddd.ddd, password=$2a$10$R3S0TrEPh7t7e44Ew9w17eiOcWD1x9eJorIZcsrYJ.UXEKOhVg23C, active=null]] was added by Larisa.Balea
+2021-01-05-17:23:44.908  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-17:24:17.804  INFO --- [  http-nio-8080-exec-2] dam.tam4.service.UserService -> addUser | User User [userId=9, name=ccc ccc, email=dsfsfd@dasd.ads, phoneNumber=1235, benefit=dasda, roles=[Role [roleId=1, roleName=ROLE_USER], Role [roleId=2, roleName=ROLE_MANAGER], Role [roleId=3, roleName=ROLE_HR], Role [roleId=4, roleName=ROLE_TEAMLIDER], Role [roleId=5, roleName=ROLE_CANDIDATE]], login=Login [id=7, username=ccc.ccc, password=$2a$10$Sw6VIq.rRGVJaDXUyT8XsuHWd5wNTJ2cDwZGYcwsn6G7mrtJjzzju, active=true]] was added by Larisa.Balea

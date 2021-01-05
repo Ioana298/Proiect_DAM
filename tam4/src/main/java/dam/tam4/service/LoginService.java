@@ -53,6 +53,7 @@ public class LoginService {
 		Login credentials = new Login();
 		credentials.setUsername(getUsernameByName(name));
 		credentials.setPassword(PasswordGenerator.getEncoddedPass("tam4"));
+		credentials.setActive(true);
 		return credentials;
 	}
 
