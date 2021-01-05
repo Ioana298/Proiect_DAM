@@ -1,5 +1,7 @@
 package dam.tam4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,9 +26,9 @@ public class UserController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/user/createUser") //terminatie URL
-	public ModelAndView createUser(User u){
+	public ModelAndView createUser(HttpServletRequest request, User u){
 		System.out.println(u);
-		uService.addUser(u);
+		uService.addUser(request, u);
 		return new ModelAndView ("redirect:/user/getAllUsers");
 	}
 
@@ -45,15 +47,15 @@ public class UserController {
 	}
 	
 	@PostMapping("/user/updateUser")
-	public ModelAndView updateUser(User u) {
-		uService.updateUser(u);
+	public ModelAndView updateUser(HttpServletRequest request, User u) {
+		uService.updateUser(request, u);
 	
 		return new ModelAndView ("redirect:/user/getAllUsers");
 	}
 	
 	@GetMapping("/user/deleteUser")
-	public ModelAndView deleteUser(@RequestParam(name = "id") Long id) {
-		uService.deleteUser(id);
+	public ModelAndView deleteUser(HttpServletRequest request, @RequestParam(name = "id") Long id) {
+		uService.deleteUser(request, id);
 	
 		return new ModelAndView ("redirect:/user/getAllUsers");
 	}

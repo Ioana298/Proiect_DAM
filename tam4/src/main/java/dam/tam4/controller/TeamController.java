@@ -1,5 +1,7 @@
 package dam.tam4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,9 +27,9 @@ public class TeamController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/team/createTeam") //terminatie URL
-	public ModelAndView createTeam(Team tm){
+	public ModelAndView createTeam(HttpServletRequest request, Team tm){
 		System.out.println(tm);
-		tmService.addTeam(tm);
+		tmService.addTeam(request, tm);
 		return new ModelAndView ("redirect:/team/getAllTeams");
 	}
 
@@ -46,15 +48,15 @@ public class TeamController {
 	}
 	
 	@PostMapping("/team/updateTeam")
-	public ModelAndView updateTeam(Team tm) {
-		tmService.updateTeam(tm);
+	public ModelAndView updateTeam(HttpServletRequest request, Team tm) {
+		tmService.updateTeam(request, tm);
 	
 		return new ModelAndView ("redirect:/team/getAllTeams");
 	}
 	
 	@GetMapping("/team/deleteTeam")
-	public ModelAndView deleteTeam(@RequestParam(name = "id") Long id) {
-		tmService.deleteTeam(id);
+	public ModelAndView deleteTeam(HttpServletRequest request, @RequestParam(name = "id") Long id) {
+		tmService.deleteTeam(request, id);
 	
 		return new ModelAndView ("redirect:/team/getAllTeams");
 	}

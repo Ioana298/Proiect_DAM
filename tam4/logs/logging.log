@@ -31,3 +31,5 @@
 2021-01-05-11:17:13.495  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
 2021-01-05-11:17:35.480  INFO --- [  http-nio-8080-exec-6] dam.tam4.service.CandidateService -> addCandidate | Candidate Candidate [candidateId=5, name=gggg, email=balea.larisa1598@gmail.com, phoneNumber=740642848, internships=[Internship [internshipId=2, name=Internship 2, startDate=2020-12-01, endDate=2020-02-01, isPaid=true, project=Project [projectId=2, name=Proiect 2, domain=Testing]]]] was added by gabriel.buzila
 2021-01-05-11:41:46.852  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-12:57:11.415  INFO --- [  restartedMain] dam.tam4.config.DbInit -> init | >>> Database initialization started!
+2021-01-05-12:57:11.457  INFO --- [  restartedMain] dam.tam4.config.DbInit -> fillRoles | Populating Roles

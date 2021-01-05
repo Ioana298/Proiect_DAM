@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,8 +26,8 @@ public class ScheduleController {
 
 		//definim tipul de request si in interiorul metodei create, chemam metoda din service
 		@PostMapping("/schedule/createSchedule") //terminatie URL
-		public void createSchedule(Schedule s){
-			sService.addSchedule(s);
+		public void createSchedule(HttpServletRequest request, Schedule s){
+			sService.addSchedule(request, s);
 		}
 
 		@GetMapping("/schedule/getAllSchedules")

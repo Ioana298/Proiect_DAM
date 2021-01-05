@@ -1,5 +1,7 @@
 package dam.tam4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +21,8 @@ public class TaskController {
 
 	//definim tipul de request si in interiorul metodei create, chemam metoda din service
 	@PostMapping("/task/createTask") //terminatie URL
-	public void createTask(Task t){
-		tService.addTask(t);
+	public void createTask(HttpServletRequest request, Task t){
+		tService.addTask(request, t);
 	}
 
 	@GetMapping("/task/getAllTasks")
